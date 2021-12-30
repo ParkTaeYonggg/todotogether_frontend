@@ -21,7 +21,7 @@ module.exports = {
                 test:/\.(js||jsx)$/,
                 loader: "babel-loader",
                 options: {
-                    presets: ["@babel/preset-env","@babel/preset-react"],
+                    presets: [["@babel/preset-env",{targets: {browsers: ["last 1 versions",">= 5% in KR"]}}],"@babel/preset-react"],
                     plugins: mode !== "poduction" ?["react-refresh/babel",["transform-remove-console", {exclude: ["error","warn","log"]}]] : 
                                                    [["transform-remove-console"],"react-refresh/babel"]
                 },
