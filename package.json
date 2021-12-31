@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack serve --env development --open",
     "build": "webpack",
-    "prod": "webpack serve --env production"
+    "prod": "webpack serve --env production --client-web-socket-transport ws --web-socket-server ws"
   },
   "keywords": [],
   "author": "",
