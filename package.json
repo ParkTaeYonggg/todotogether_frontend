@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack serve --env development --open"
+    "dev": "webpack serve --env development --open",
+    "build": "webpack",
+    "prod": "webpack serve --env production --open"
   },
   "keywords": [],
   "author": "",

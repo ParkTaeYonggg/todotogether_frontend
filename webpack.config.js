@@ -3,10 +3,10 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 
-const mode = process.env.NODE_ENV !== 'production' ? "development" : "production";
+const mode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
-    mode: mode, // 배포시 production으로
+    mode: mode ? "development" : "production", // 배포시 production으로
     name: "ToDoTogether",
 
     resolve: {
@@ -52,6 +52,6 @@ module.exports = {
         port: 3000,
         devMiddleware: {publicPath: "/"},
         static: path.resolve(__dirname, "./dist"),
-        hot: true
+        hot: mode ? true : false
     }
 }
