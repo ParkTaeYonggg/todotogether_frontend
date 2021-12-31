@@ -52,6 +52,7 @@ module.exports = {
         port: 3000,
         devMiddleware: {publicPath: "/"},
         static: path.resolve(__dirname, "./dist"),
-        hot: mode ? true : false
+        hot: mode ? true : false,
+        disableHostCheck: true
     }
 }
