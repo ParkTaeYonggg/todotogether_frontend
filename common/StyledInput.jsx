@@ -1,5 +1,5 @@
+import React from "react";
 import styled from "styled-components";
-import { ThemeProvider } from "styled-components";
 import { theme } from "./theme";
 
 export default function StyledInput ({id, name, type, onChange, ref, value, labeling, error}) {
@@ -23,6 +23,7 @@ const InputTag = styled.input`
     border: none;
     border-bottom: 2px solid ${theme.fontColor};
     width: 100%;
+    background-color: inherit;
 `;
 const InputWrapper = styled.div`
     &::after {

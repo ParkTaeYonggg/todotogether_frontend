@@ -21,14 +21,15 @@ module.exports = {
                 test:/\.(js||jsx)$/,
                 loader: "babel-loader",
                 options: {
-                    presets: [["@babel/preset-env",{targets: {browsers: ["last 1 versions",">= 5% in KR"]}}],"@babel/preset-react"],
-                    plugins: mode !== "poduction" ?["react-refresh/babel",["transform-remove-console", {exclude: ["error","warn","log"]}]] : 
-                                                   [["transform-remove-console"],"react-refresh/babel"]
+                    presets: [["@babel/preset-env",{targets: {browsers: ["last 2 versions",">= 5% in KR"]}}],"@babel/preset-react"],
+                    plugins: ["react-refresh/babel",
+                             ["transform-remove-console", {exclude: ["error","warn","log"]}]
+                             ] 
                 },
             },
             {
-                test:/\.css$/,
-                use: ["css-loader","style-loader"],
+                test:/\.(css||sass||scss)$/,
+                use: ["style-loader","css-loader","sass-loader"]
             },
             {
                 test:/\.(png||jpg||gif||svg)$/,
@@ -52,7 +53,6 @@ module.exports = {
         port: 3000,
         devMiddleware: {publicPath: "/"},
         static: path.resolve(__dirname, "./dist"),
-        hot: mode ? true : false,
-        disableHostCheck: true
+        hot: mode ? true : false
     }
 }

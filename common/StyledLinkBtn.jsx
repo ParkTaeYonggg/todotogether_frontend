@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import {Link} from "react-router-dom";
 import {theme} from "./theme";
-export default function StyledLinkBtn ({children, to}) {
-    return <LinkTag to={to}>{children}</LinkTag>;
+export default function StyledLinkBtn ({children, to, fontSize}) {
+    return <LinkTag to={to} fontSize={fontSize}>{children}</LinkTag>;
 }
 
 const LinkTag = styled(Link)`
@@ -12,7 +12,7 @@ border: 2px solid ${theme.fontColor};
 border-radius: 15px;
 padding: 10px;
 color: white;
-font-size: ${theme.fontSizeMobileTall};
+font-size: ${props => props.fontSize ? props.fontSize : theme.fontSizeMobileTall};
 text-decoration: none;
 position: relative;
 
