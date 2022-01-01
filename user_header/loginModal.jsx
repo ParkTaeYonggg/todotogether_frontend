@@ -23,7 +23,7 @@ function LoginModal ({onClick}) {
                          name="id"
                          type="text"
                          labeling={"아이디"}
-                         value={values.id}
+                         value={values.id || ""}
                          onChange={e => handlerValues("id",e)}
                          ref={inputRefId}
                          />
@@ -31,7 +31,7 @@ function LoginModal ({onClick}) {
                          name="pw"
                          type="password"
                          labeling={"비밀번호"}
-                         value={values.pw}
+                         value={values.pw || ""}
                          onChange={e => handlerValues("pw",e)}
                          ref={inputRefPw}
                          />

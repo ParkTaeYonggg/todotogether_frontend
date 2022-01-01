@@ -6,7 +6,7 @@ import Header from "./user_header/header";
 export default function App () { 
     return (
         <>
-            <Header />
+            <Route path="/" component={Header} />
             <ErrorPage />
         </>
     );
