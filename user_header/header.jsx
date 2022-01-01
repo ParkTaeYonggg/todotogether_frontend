@@ -38,9 +38,14 @@ const HeaderTag = styled.div`
     display: grid;
     grid-template-columns: 20% 60% 20%;
     width: 100%;
+    height: 50px;
     align-items: center;
     justify-items: center;
 
+    @media screen and (max-width: 960px) {
+        grid-template-columns: 30% 45% 25%;
+        font-size: 15px;
+    }
     @media screen and (max-width: 920px) {
         grid-template-columns: 30% 45% 25%;
     }
