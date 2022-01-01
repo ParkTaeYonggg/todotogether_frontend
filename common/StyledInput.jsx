@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "./theme";
 
-export default function StyledInput ({id, name, type, onChange, ref, value, labeling, error}) {
+export default function StyledInput ({id, name, type, onChange, Ref, value, labeling, error}) {
     return (
         <InputWrapper error={error} labeling={labeling} id={id}>
             <label htmlFor={id} style={{color:theme.fontColor}}>{labeling}</label>
@@ -10,7 +10,7 @@ export default function StyledInput ({id, name, type, onChange, ref, value, labe
                         name={name}
                         type={type}
                         onChange={onChange}
-                        ref={ref}
+                        ref={Ref}
                         value={value}
                         error={error}
                 />

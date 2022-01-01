@@ -6,6 +6,7 @@ import { BsFillBellFill } from "react-icons/bs";
 import StyledLinkBtn from "../common/StyledLinkBtn";
 import { Link } from "react-router-dom";
 import LoginModal from "./loginModal";
+import { device, theme } from "../common/theme";
 
 function Header () {
     const [isLogin, setIsLogin] = useState();
@@ -14,7 +15,6 @@ function Header () {
     const handlerModal = () => {
         setShowing(!showing);
     };
-
     return (
         <>
         <HeaderTag>
@@ -25,7 +25,7 @@ function Header () {
             <h1>{isLogin ? <BsFillBellFill/> : null}</h1>
             <div className="innerWrapper"> 
                 <span className="basicBtn" onClick={ handlerModal }>로그인</span>
-                <StyledLinkBtn to="/signup" fontSize="14px">회원가입</StyledLinkBtn>
+                <StyledLinkBtn to="/signup">회원가입</StyledLinkBtn>
             </div>
         </HeaderTag>
         {showing ? <LoginModal onClick={ handlerModal }/> : null}
@@ -41,7 +41,14 @@ const HeaderTag = styled.div`
     align-items: center;
     justify-items: center;
 
-    @media screen and (max-width: 861px) {
-        grid-template-columns: 40% 20% 40%;
+    @media screen and (max-width: 920px) {
+        grid-template-columns: 30% 45% 25%;
+    }
+    @media screen and (max-width: 700px) {
+        grid-template-columns: 40% 30% 30%;
+    }
+    @media screen and (max-width: 500px) {
+        grid-template-columns: 43% 23% 34%;
+        font-size: 12px;
     }
 `;
