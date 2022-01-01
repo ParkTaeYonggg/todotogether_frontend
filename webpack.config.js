@@ -21,14 +21,15 @@ module.exports = {
                 test:/\.(js||jsx)$/,
                 loader: "babel-loader",
                 options: {
-                    presets: [["@babel/preset-env",{targets: {browsers: ["last 1 versions",">= 5% in KR"]}}],"@babel/preset-react"],
-                    plugins: mode !== "poduction" ?["react-refresh/babel",["transform-remove-console", {exclude: ["error","warn","log"]}]] : 
-                                                   [["transform-remove-console"],"react-refresh/babel"]
+                    presets: [["@babel/preset-env",{targets: {browsers: ["last 2 versions",">= 5% in KR"]}}],"@babel/preset-react"],
+                    plugins: ["react-refresh/babel",
+                             ["transform-remove-console", {exclude: ["error","warn","log"]}]
+                             ] 
                 },
             },
             {
-                test:/\.css$/,
-                use: ["css-loader","style-loader"],
+                test:/\.(css||sass||scss)$/,
+                use: ["style-loader","css-loader","sass-loader"]
             },
             {
                 test:/\.(png||jpg||gif||svg)$/,
@@ -50,9 +51,15 @@ module.exports = {
     },
     devServer: {
         port: 3000,
+        historyApiFallback: true, // 라우터 사용시 필요한 기능이다. 변경된 주소에서 새로고침해도 에러를 막아준다.
+        proxy: {
+            "/api": {
+                target: "http://localhost:8080",
+                pathRewrite: {"/api":"/"}
+            }
+        },
         devMiddleware: {publicPath: "/"},
         static: path.resolve(__dirname, "./dist"),
-        hot: mode ? true : false,
-        disableHostCheck: true
+        hot: mode ? true : false
     }
 }

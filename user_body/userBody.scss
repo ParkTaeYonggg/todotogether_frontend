@@ -1,0 +1,40 @@
+.userBodyInnerWrapper {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 95% 5%;
+    width: 100%;
+    height: 100%;
+    justify-items: center;
+    align-items: center;
+    position: relative;
+
+    .img1 {
+        position: absolute;
+        width: 40%;
+        height: 300px;
+        right: 5%;
+        top: 30px;
+    }
+    .img2 {
+        position: absolute;
+        width: 30%;
+        height: 200px;
+    }
+
+    @media screen and (max-width: 720px) {
+        grid-template-columns: 100%;
+        grid-template-rows: 35% 60% 5%;
+        .img1 {
+            position: static;
+            width: 48%;
+            height: 250px;
+            margin-right: 3px;
+        };
+        .img2 {
+            position: static;
+            width: 48%;
+            margin-left: 3px;
+            height: 250px;
+        };
+    }
+}
