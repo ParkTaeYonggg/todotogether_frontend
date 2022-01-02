@@ -1,5 +1,7 @@
+
 import React, { useState, useMemo, useEffect, useRef } from "react";
 import { throttle } from "lodash";
+import React, { useState } from "react";
 import styled from "styled-components";
 import "./header.scss";
 
@@ -7,10 +9,12 @@ import { BsFillBellFill } from "react-icons/bs";
 import StyledLinkBtn from "../common/StyledLinkBtn";
 import { Link } from "react-router-dom";
 import LoginModal from "./loginModal";
+import { device, theme } from "../common/theme";
 
 function Header () {
     const [isLogin, setIsLogin] = useState();
     const [ showing, setShowing ] = useState(false);
+
     const [scrollEvent, setScrollEvent] = useState(false);
 
     // 헤더 스크롤이벤트
@@ -46,16 +50,36 @@ function Header () {
                 </div>
             </HeaderTag>
             {showing ? <LoginModal onClick={ handlerModal }/> : null}
+
+    const handlerModal = () => {
+        setShowing(!showing);
+    };
+    return (
+        <>
+        <HeaderTag>
+            <div className="innerWrapper">
+                <span>TodoTogether</span>
+                <Link className="basicBtn" to="/notice">공지사항</Link>
+            </div>
+            <h1>{isLogin ? <BsFillBellFill/> : null}</h1>
+            <div className="innerWrapper"> 
+                <span className="basicBtn" onClick={ handlerModal }>로그인</span>
+                <StyledLinkBtn to="/signup">회원가입</StyledLinkBtn>
+            </div>
+        </HeaderTag>
+        {showing ? <LoginModal onClick={ handlerModal }/> : null}
         </>
     );
 }
 export default Header;
 
 const HeaderTag = styled.div`
+
     position: ${props => props.scrollEvent ? "fixed" : "static"};
     background-color: ${props => props.scrollEvent ? "rgb(253, 246, 253)" : "inherit"};
     z-index: 1;   
     margin-top: -8px; 
+
     display: grid;
     grid-template-columns: 20% 60% 20%;
     width: 100%;
@@ -78,6 +102,7 @@ const HeaderTag = styled.div`
         font-size: 12px;
     }
 
+
     @keyframes colorOn {
         from {
             opacity: 0;
@@ -99,4 +124,5 @@ const HeaderTag = styled.div`
         };
     }
     animation: ${props => props.scrollEvent ? "colorOn" : "colorOff"} 1s both linear;
+
 `;
