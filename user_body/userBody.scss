@@ -24,6 +24,7 @@
     @media screen and (max-width: 720px) {
         grid-template-columns: 100%;
         grid-template-rows: 35% 60% 5%;
+
         .img1 {
             position: static;
             width: 48%;
@@ -36,5 +37,26 @@
             margin-left: 3px;
             height: 250px;
         };
+
+        .main2Div { order: 1;};
+        .main2Img { order: 2;};
+        .main2Link { order: 3;};
+        .main2imgSetting { position: static; width: 99%; height: 220px;};
     }
 }
+
+
+
+.userBodyInnerDiv {
+    justify-self: center;
+    width: 90%;
+    font-size: 2.2vw;
+
+    @media screen and (max-width: 720px) {
+        font-size: 15px;
+    }
+}
+
+    }
+}
+

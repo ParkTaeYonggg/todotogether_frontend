@@ -15,7 +15,7 @@ export default function CommonModal ({children, onClick, size}) {
 }
 
 const ModalWrapper = styled.div`
-    position: absolute;
+    position: fixed;
     width: 100%;
     min-height: 600px;
     height: 100%;
