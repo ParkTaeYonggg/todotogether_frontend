@@ -12,14 +12,9 @@ export default function MainBody () {
     return (
         <MainWrapper>
             <Main1 />
-
             <Main2 />
             <Main3 />
             <MainGoSignup />
-
-            <h1>2</h1>
-            <h1>3</h1>
-            <h1>4</h1>
 
         </MainWrapper>
     );
