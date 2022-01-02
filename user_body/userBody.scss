@@ -1,3 +1,5 @@
+@use "../common/common";
+
 .userBodyInnerWrapper {
     display: grid;
     grid-template-columns: 50% 50%;
@@ -57,3 +59,67 @@
     }
 }
 
+// 회원가입, 회원수정, 회원조회
+.userCommonWrapper {
+    width: 100%;
+    min-height: 800px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.userInfoInnerWrapper {
+    width: 50%;
+    display: grid;
+    grid-template-rows: 80% 20%;
+    min-height: 500px;
+    .userInfoDeepInnerWrapper {
+        display: grid;
+        grid-template-columns: 60% 40%;
+        width: 100%;
+        .userInfoDeepLeftInnerWrapper {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            div { height: 16%; margin-bottom: 10px; }
+            input { width: 96%; }
+        };
+        .userInfoDeepRightInnerWrapper {
+            display: flex;
+            flex-direction: column;
+            img { width: 100%;};
+        }
+    }
+}
+
+.inputFile {
+    position: relative;
+    font-size: 1.2vw;
+    
+    input {
+        opacity: 0; 
+        width: 100%; 
+        position: absolute; 
+        top: 35px; 
+        z-index: 1; 
+        cursor: pointer;
+    }
+    &::after {
+        content: '프로필사진 등록하기';
+        position: absolute;
+        width: inherit;
+        left: 50%;
+        transform: translate(-50px, 40px);
+        color: common.$fontColor;
+        display: inline-block;
+    }
+}
+
+.rightSignupUserImg {
+    width: 90%;
+    height: 130px;
+    transform: translate(0px, 30px);
+}
