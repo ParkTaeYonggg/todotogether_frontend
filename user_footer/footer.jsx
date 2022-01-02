@@ -13,5 +13,6 @@ export default function Footer () {
 }
 
 const FooterP = styled.p`
-    margin: 70px 0px 40px 0px;
+    margin: 70px 10px 40px 10px;
+    padding: 10px;
 `;
